@@ -19,7 +19,8 @@ function register(req, res) {
 
   Users.add(user)
   .then(newUser => {
-    res.status(201).json(newUser);
+    const token = tokenMaker.generateToken(newUser);
+    res.status(201).json({newUser, token});
   })
   .catch(error => {
     res.status(500).json(error);
