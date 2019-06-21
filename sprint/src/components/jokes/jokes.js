@@ -11,14 +11,15 @@ class Jokes extends React.Component {
     componentDidMount(){
         const options = {
             headers: {
-                accept: 'application/json'
+                accept: 'application/json',
+                Authorization: localStorage.token
             }
         }
-        axios.get('https://icanhazdadjoke.com/search', options)
+        axios.get('http://localhost:8000/api/jokes', options)
         .then(res => {
             console.log(res.data)
             this.setState({
-                jokes: res.data.results
+                jokes: res.data
             })
         })
         .catch(err => {
