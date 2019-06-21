@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import requiresAuth from '../auth/requiresAuth.js';
+import '../../Styles.css'
 
 class Users extends React.Component {
     state = {
@@ -31,9 +32,9 @@ class Users extends React.Component {
     }
     return (
         <div>
-            <h3>List of users</h3>
+            <h3 className="headingTitle">List of users</h3>
             {this.state.users.map(user =>
-                <div key={user.id}>
+                <div className="contentAlignment" key={user.id}>
                     <p>{user.username}</p>
                 </div>
                 )}

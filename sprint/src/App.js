@@ -1,6 +1,9 @@
 import React from 'react';
 import {Route, NavLink, withRouter} from 'react-router-dom';
+
+import './Styles.css';
 import {Button} from 'reactstrap';
+
 import Home from './components/home.js';
 import Login from './components/auth/login.js';
 import Register from './components/auth/register.js';
@@ -14,10 +17,10 @@ function App(props) {
     props.history.push('/login')
   }
   return (
-    <div>
+    <div className="App">
       <header>
         <h1>Welcome to A Slapstick Slapped-Together App of Dad Jokes!</h1>
-        <nav>
+        <nav className="nav">
           <NavLink to="/">Home</NavLink>
           &nbsp;|&nbsp;
           <NavLink to="/register">Register</NavLink>
@@ -27,9 +30,8 @@ function App(props) {
           <NavLink to="/users">List of Users</NavLink>
           &nbsp;|&nbsp;
           <NavLink to="/jokes">List of Jokes</NavLink>
-          &nbsp;|&nbsp;
-          <Button color="primary" onClick={logout}>Log Out</Button>
         </nav>
+        <div className="working"><Button color="primary" onClick={logout}>Log Out</Button></div>
       </header>
       <main>
         <Route exact path="/" component={Home} />

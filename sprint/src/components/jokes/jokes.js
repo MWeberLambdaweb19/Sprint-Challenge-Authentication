@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import requiresAuth from '../auth/requiresAuth.js';
+import '../../Styles.css'
 
 class Jokes extends React.Component {
     state = {
@@ -31,9 +32,9 @@ class Jokes extends React.Component {
     }
     return (
         <div>
-            <h3>List of jokes</h3>
+            <h3 className="headingTitle">List of jokes</h3>
             {this.state.jokes.map(joke =>
-                <div key={joke.id}>
+                <div className="contentAlignment" key={joke.id}>
                     <p>{joke.joke}</p>
                 </div>
                 )}
