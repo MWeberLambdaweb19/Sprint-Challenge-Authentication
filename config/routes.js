@@ -1,11 +1,13 @@
 const axios = require('axios');
 
 const { authenticate } = require('../auth/authenticate');
+const Users = require('../users/users-model.js');
 
 module.exports = server => {
   server.post('/api/register', register);
   server.post('/api/login', login);
   server.get('/api/jokes', authenticate, getJokes);
+  server.get('/api/users', authenticate, getUsers)
 };
 
 function register(req, res) {
@@ -14,6 +16,14 @@ function register(req, res) {
 
 function login(req, res) {
   // implement user login
+}
+
+function getUsers(req, res) {
+  Users.find()
+  .then(users => {
+    res.json(users);
+  })
+  .catch(err => res.send(err))
 }
 
 function getJokes(req, res) {
